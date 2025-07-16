@@ -32,16 +32,23 @@ app.get("/", async (req, res) => {
   });
 });
 
-const connectDB = () => {
-  mongoose.set("strictQuery", true);
-  mongoose
-    .connect(process.env.MONGODB_URL)
-    .then(() => console.log("Connected to Mongo DB"))
-    .catch((err) => {
-      console.error("failed to connect with mongo");
-      console.error(err);
+
+const connectDB = async () => {
+  try {
+    mongoose.set("strictQuery", true);
+    await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
     });
+    console.log("Connected to MongoDB Atlas");
+  } catch (error) {
+    console.error("Failed to connect to MongoDB");
+    console.error(error.message);
+    
+  }
 };
+
+
 
 const startServer = async () => {
   try {
