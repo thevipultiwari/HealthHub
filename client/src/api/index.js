@@ -2,8 +2,9 @@ import axios from "axios";
 import React from "react";
 
 const API = axios.create({
-  baseURL: "https://fitnesstrack-vtv1.onrender.com/api/",
+  baseURL: process.env.REACT_APP_API_BASE_URL,
 });
+
 
 export const UserSignUp = async (data) => API.post("/user/signup", data);
 export const UserSignIn = async (data) => API.post("/user/signin", data);
