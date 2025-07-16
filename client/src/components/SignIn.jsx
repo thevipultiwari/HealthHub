@@ -39,24 +39,29 @@ const SignIn = () => {
     return true;
   };
 
-  const handelSignIn = async () => {
-    setLoading(true);
-    setButtonDisabled(true);
-    if (validateInputs()) {
-      await UserSignIn({ email, password })
-        .then((res) => {
-          dispatch(loginSuccess(res.data));
-          alert("Login Success");
-          setLoading(false);
-          setButtonDisabled(false);
-        })
-        .catch((err) => {
-          alert(err.response.data.message);
-          setLoading(false);
-          setButtonDisabled(false);
-        });
+const handelSignIn = async () => {
+  setLoading(true);
+  setButtonDisabled(true);
+  if (validateInputs()) {
+    try {
+      const res = await UserSignIn({ email, password });
+      const { token, user } = res.data;
+
+      dispatch(loginSuccess({ user, token }));
+      localStorage.setItem("token", token); 
+      alert("Login Success");
+    } catch (err) {
+      alert(err.response?.data?.message || "Login failed");
+    } finally {
+      setLoading(false);
+      setButtonDisabled(false);
     }
-  };
+  } else {
+    setLoading(false);
+    setButtonDisabled(false);
+  }
+};
+
 
   return (
     <Container>
