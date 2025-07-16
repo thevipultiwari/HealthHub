@@ -6,6 +6,7 @@ import UserRoutes from "./routes/User.js";
 
 
 
+console.log("JWT:", process.env.JWT);
 
 dotenv.config();
 
