@@ -1,6 +1,6 @@
 # HealthHub - Workout Analytics Dashboard
 
-FitTrack is a full-stack workout tracking and analytics application that allows users to log their workouts, track progress over time, and gain insights through visual analytics. Built with the MERN stack (MongoDB, Express.js, React, Node.js), the app ensures seamless user experience with authentication, dynamic charts, and performance summaries.
+HealthHub is a full-stack workout tracking and analytics application that allows users to log their workouts, track progress over time, and gain insights through visual analytics. Built with the MERN stack (MongoDB, Express.js, React, Node.js), the app ensures seamless user experience with authentication, dynamic charts, and performance summaries.
 
 ## Features
 
