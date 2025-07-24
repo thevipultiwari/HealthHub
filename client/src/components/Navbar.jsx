@@ -7,6 +7,12 @@ import { Avatar } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { logout } from "../redux/reducers/userSlice";
 
+// ADD THESE MISSING IMPORTS
+import { Home, Dumbbell, BookOpen, BarChart3 } from "lucide-react";
+
+// Rest of your component code remains the same...
+
+
 const Nav = styled.div`
   background-color: ${({ theme }) => theme.bg};
   height: 80px;
@@ -165,5 +171,14 @@ const Navbar = ({ currentUser }) => {
     </Nav>
   );
 };
+
+
+const navItems = [
+  { name: "Dashboard", path: "/", icon: Home },
+  { name: "Workouts", path: "/workouts", icon: Dumbbell },
+  { name: "Exercise Library", path: "/exercises", icon: BookOpen }, 
+  { name: "Analytics", path: "/analytics", icon: BarChart3 },
+];
+
 
 export default Navbar;
