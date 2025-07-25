@@ -12,7 +12,6 @@ const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Workouts = lazy(() => import("./pages/Workouts"));
 const ExerciseLibrary = lazy(() => import("./components/exercise/ExerciseLibrary"));
 const Authentication = lazy(() => import("./pages/Authentication"));
-
 // Professional styled container with modern design
 const Container = styled.div`
   width: 100%;
